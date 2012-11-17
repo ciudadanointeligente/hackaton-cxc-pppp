@@ -1,5 +1,6 @@
 
 <title>PPPP: FNDR {{ object.codigo }}</title>
+<link href="{{ STATIC_URL }}kathe.css" rel="stylesheet">
 <style>
 
 body {
@@ -14,33 +15,51 @@ form {
   right: 10px;
   top: 10px;
 }
+</style>
 
+<style type="text/css">
+.btn {
+  display: inline-block;
+  background: url(btn.bg.png) repeat-x 0px 0px;
+  padding:5px 10px 6px 10px;
+  font-weight:bold;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+  border:1px solid rgba(0,0,0,0.4);
+  -moz-border-radius: 5px;
+  -moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+}
+
+.blue:hover   {background-color: #CCCCCC; color: #141414;}
+.blue {background-color: #00c0ff; color: #ffffff;}
+.red:hover    {background-color: #CCCCCC; color: #141414;}
+.red  {background-color: #ff004e; color: #ffffff;}
 </style>
 
 <h2>{{ object.nombre }}</h2>
 
-
-<h3>
-<div style = "float:left; margin-left:30px; width:400px;">
-<p>Costo: ${{ object.costo }}</p>
-<p>Etapa: {{ object.etapa }}</p>
-<p>Código: {{ object.codigo }}</p> 
-<p>Tipo: {{ object.tipo }}</p> 
-<p>Etapa: {{ object.descripcion_etapa }}</p> 
-<p>Año: {{ object.ano }}</p> 
-<p>Comuna: {{ object.comuna }}</p> 
-<p>Ubicación: {{ object.ubicacion }}</p> 
-<p>Subsector: {{ object.subsector.nombre }}</p> 
-<p>Costo: {{ object.costo }}</p>
-</div> 
-<!--<p>Institución: {{ object.institucion }}</p> 
-<p>Descripción Etapa: {{ object.descripcion_etapa }}</p> 
-<p>Situación: {{ object.situacion }}</p> 
-<p>Magnitud: {{ object.magnitud }}</p> 
-<p>Valor Magnitud: {{ object.valor_magnitud }}</p> 
-<p>Vida Útil: {{ object.vida_util }}</p> 
-<p>Número de Beneficiarios: {{ object.beneficiarios }}</p>-->
-</h3>
+<h4>
+  <div style = "float:left; margin-left:30px; width:250px;">
+  <p>Costo: ${{ object.costo }}</p>
+  <p>Etapa: {{ object.etapa }}</p>
+  <p>Código: {{ object.codigo }}</p> 
+  <p>Tipo: {{ object.tipo }}</p> 
+  <p>Etapa: {{ object.descripcion_etapa }}</p> 
+  <p>Año: {{ object.ano }}</p> 
+  <p>Comuna: {{ object.comuna }}</p> 
+  <p>Ubicación: {{ object.ubicacion }}</p> 
+  <p>Subsector: {{ object.subsector.nombre }}</p> 
+  <p>Costo: $ {{ object.costo }}</p>
+  </div> 
+  <!--<p>Institución: {{ object.institucion }}</p> 
+  <p>Descripción Etapa: {{ object.descripcion_etapa }}</p> 
+  <p>Situación: {{ object.situacion }}</p> 
+  <p>Magnitud: {{ object.magnitud }}</p> 
+  <p>Valor Magnitud: {{ object.valor_magnitud }}</p> 
+  <p>Vida Útil: {{ object.vida_util }}</p> 
+  <p>Número de Beneficiarios: {{ object.beneficiarios }}</p>-->
+</h4>
 
 
 <div style = "margin-left: 500px">
@@ -50,14 +69,17 @@ form {
 </div>
 
 <div style="margin-top:40px;">
-<label for="comentarios">¿No calzan los datos? Denuncia con contraloría</label>
-<br>
-<textarea name="comentarios" rows="7" cols="50"></textarea>
-<br>
-<button>Enviar</button>
-</div>
+  <label for="comentarios">¿No calzan los datos? Denuncia con contraloría</label>
+  <br>
+  <textarea name="comentarios" rows="7" cols="42"></textarea>
+  <br>
+  <button>Enviar</button>
 </div>
 
+<p>¡Corre la voz en tu barrio!, mantente alerta por SMS<br>de este proyecto FNDR y estarás votando por el</p>
+<div class="btn blue">Sí, apoyo</div>
+<div class="btn red">No, en contra</div>
+</div>
 
 <div style="margin-top:40px;width:600px;margin-left:30px;">
         <div id="disqus_thread"></div>
@@ -72,9 +94,7 @@ form {
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscriptS , apoyo  href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></<bNo, en contra no     
 
 
 </div>
