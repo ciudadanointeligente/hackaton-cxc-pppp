@@ -6,7 +6,7 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
-from models import Proyecto, Sector, SubSector
+from models import Proyecto, Sector, SubSector, Institucion
 from electoralarea.models import Comuna
 
 #bd proyectos
@@ -21,6 +21,7 @@ class ProyectoTestCase(TestCase):
 		ubicacion = u"Holanda 895"
 		subsector = SubSector.objects.create(nombre = u"Bibliotecas comunitarias", sector = Sector.objects.create(nombre = u"Educacion"))
 		costo = 123456
+		municipalidad_de_valparaiso = Institucion.objects.create(nombre = u"Municipalidad de Valparaiso")
 		descripcion_etapa = u"Descripcion de prueba"
 		situacion = u"Sitaucion de prueba"
 		magnitud = u"Magnitud de prueba"
@@ -37,7 +38,7 @@ class ProyectoTestCase(TestCase):
 			ubicacion = ubicacion,
 			subsector = subsector,
 			costo = costo,
-			#institucion,
+			institucion = municipalidad_de_valparaiso,
 			descripcion_etapa = descripcion_etapa,
 			situacion = situacion,
 			magnitud = magnitud,
@@ -48,7 +49,8 @@ class ProyectoTestCase(TestCase):
 		self.assertTrue(created)
 		self.assertEquals(codigo, proyecto.codigo)
 		self.assertEquals(comuna,proyecto.comuna)
-		self.assertEquals(subsector, proyecto.subsector)	
+		self.assertEquals(subsector, proyecto.subsector)
+		self.assertEquals(municipalidad_de_valparaiso, proyecto.institucion)	
 
 
 #bd sector/subsector del proyecto
@@ -69,7 +71,16 @@ class SubSectorTestCase(TestCase):
 		self.assertTrue(created)
 		self.assertEquals(subsector.nombre, u"Bibliotecas comunitarias")
 		self.assertEquals(subsector.sector, sector)
+
 #bd institucion
+class InstitucionTestCase(TestCase):
+	def test_create_institucion(self):
+		nombre = u"Municipalidad de Valparaiso"
+		institucion, created = Institucion.objects.get_or_create(
+			nombre = nombre
+			)
+		self.assertTrue(created)
+		self.assertEquals(institucion.nombre, nombre)
 
 #bd usuario
 

@@ -12,6 +12,7 @@ class Proyecto(models.Model):
 	ubicacion = models.CharField(max_length=1024)
 	subsector = models.ForeignKey("SubSector")
 	costo = models.IntegerField()
+	institucion = models.ForeignKey("Institucion")
 	descripcion_etapa = models.CharField(max_length=4096)
 	situacion = models.CharField(max_length=255)
 	magnitud = models.CharField(max_length=255)
@@ -25,3 +26,6 @@ class Sector(models.Model):
 class SubSector(models.Model):
 	nombre = models.CharField(max_length=1024)
 	sector = models.ForeignKey(Sector)
+
+class Institucion(models.Model):
+	nombre = models.CharField(max_length=255)
