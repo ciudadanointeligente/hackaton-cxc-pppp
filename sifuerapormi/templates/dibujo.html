@@ -71,7 +71,7 @@ $(document).ready(function(){
 	      //.attr("title", function(d,i){ return d.name + (d.cost==null? '' : '\n$'+ d.cost)});
 
           path.append("svg:title")
-              .text(function(d,i){ return d.name + (d.cost==null? '' : '\n$'+ d.cost)});
+              .text(function(d,i){ return d.name + (d.cost==null? '' : '\n$'+ d.cost) + (d.a_favor==null? '' : '\napoyo ' +(d.a_favor - d.en_contra))});
 
 	  d3.selectAll("input").on("change", function change() {
 	    var value = this.value === "count"
