@@ -8,17 +8,17 @@ class Proyecto(models.Model):
 	tipo = models.CharField(max_length=255)
 	etapa = models.CharField(max_length=255)
 	ano = models.IntegerField()
-	comuna = models.CharField(max_length=255)
+	comuna = models.ForeignKey(Comuna)
 	ubicacion = models.CharField(max_length=1024)
 	subsector = models.ForeignKey("SubSector")
 	costo = models.IntegerField()
-	# institucion = models.ForeignKey("Institucion",null=True)
-	# descripcion_etapa = models.CharField(max_length=4096)
-	# situacion = models.CharField(max_length=255)
-	# magnitud = models.CharField(max_length=255)
-	# valor_magnitud = models.IntegerField()
-	# vida_util = models.IntegerField()
-	# beneficiarios = models.IntegerField()
+	institucion = models.ForeignKey("Institucion",null=True)
+	descripcion_etapa = models.CharField(max_length=4096,null=True)
+	situacion = models.CharField(max_length=255,null=True)
+	magnitud = models.CharField(max_length=255,null=True)
+	valor_magnitud = models.IntegerField(null=True)
+	vida_util = models.IntegerField(null=True)
+	beneficiarios = models.IntegerField(null=True)
 
 class Sector(models.Model):
 	nombre = models.CharField(max_length=255)
@@ -27,5 +27,5 @@ class SubSector(models.Model):
 	nombre = models.CharField(max_length=1024)
 	sector = models.ForeignKey(Sector)
 
-# class Institucion(models.Model):
-# 	nombre = models.CharField(max_length=255)
+class Institucion(models.Model):
+	nombre = models.CharField(max_length=255)
