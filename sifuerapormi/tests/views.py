@@ -142,10 +142,10 @@ class ComunaJsonViewTestCase(TestCase):
 		url = reverse("thumbs-up")
 		data = { "pk":self.proyecto4.pk }
 
-		response = self.client.post(url, data)
+		response = self.client.get(url, data)
 
 		self.assertEquals(response.status_code, 200)
-		self.assertEquals(response.context, "1") #representa la cantidad de votos a favor
-		proyecto = Proyecto.objects.get(self.proyecto4.pk)
+		self.assertEquals(response.content, "1") #representa la cantidad de votos a favor
+		proyecto = Proyecto.objects.get(pk=self.proyecto4.pk)
 
 		self.assertEquals(proyecto.a_favor, 1)
