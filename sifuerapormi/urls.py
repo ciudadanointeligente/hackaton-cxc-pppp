@@ -9,4 +9,7 @@ urlpatterns = patterns('',
 	url(r'^(?P<pk>[-\d]+)/?$', ComunaIndicesView.as_view(template_name = "dibujo.html"), name='comuna-detail-dibujo'),
 	url(r'^(?P<pk>[-\d]+).json$', ComunaIndicesView.as_view(), name='comuna-detail'),
 	url(r'^proyecto/(?P<pk>[-\d]+)/$', DetailView.as_view(model=Proyecto, template_name="proyecto-detail.html"), name='proyecto-detail'),
+	url(r'^thumbs_up/$', "sifuerapormi.views.thumbs_up", name='thumbs-up'),
+	url(r'^thumbs_down/$', "sifuerapormi.views.thumbs_down", name='thumbs-down'),
+
 	)

@@ -7,7 +7,9 @@ from django.views.generic.detail import DetailView
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 from electoralarea.models import Comuna
-from models import Comuna, Sector
+from models import Comuna, Sector, Proyecto
+from django.http import HttpResponse
+from django.views.decorators.http import require_POST
 import json
 
 class HomeTemplateView(TemplateView):
@@ -63,3 +65,25 @@ class ComunaIndicesView(DetailView):
 		context['areas'] = self.get_areas()
 
 		return context
+
+#@require_POST
+def thumbs_up(request):
+	proyecto_pk = request.GET['pk']
+	proyecto = Proyecto.objects.get(pk=proyecto_pk)
+	if proyecto.a_favor is None:
+		proyecto.a_favor = 0
+	proyecto.a_favor = proyecto.a_favor + 1
+
+	proyecto.save()
+	return HttpResponse(proyecto.a_favor,content_type='application/json')
+
+
+def thumbs_down(request):
+	proyecto_pk = request.GET['pk']
+	proyecto = Proyecto.objects.get(pk=proyecto_pk)
+	if proyecto.en_contra is None:
+		proyecto.en_contra = 0
+	proyecto.en_contra = proyecto.en_contra + 1
+
+	proyecto.save()
+	return HttpResponse(proyecto.en_contra,content_type='application/json')

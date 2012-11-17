@@ -55,8 +55,6 @@ class ProyectoTestCase(TestCase):
 		self.assertEquals(proyecto.a_favor, 0)
 		self.assertEquals(proyecto.en_contra, 0)
 
-		
-
 
 #bd sector/subsector del proyecto
 class SectorTestCase(TestCase):
