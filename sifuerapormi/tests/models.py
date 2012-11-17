@@ -7,7 +7,7 @@ Replace this with more appropriate tests for your application.
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
-from models import Proyecto, Sector, SubSector, Institucion
+from sifuerapormi.models import Proyecto, Sector, SubSector, Institucion
 from electoralarea.models import Comuna
 
 #bd proyectos
