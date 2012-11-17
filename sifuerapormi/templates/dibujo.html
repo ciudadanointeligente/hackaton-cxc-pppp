@@ -49,6 +49,7 @@ $(document).ready(function(){
 	    .outerRadius(function(d) { return Math.sqrt(d.y + d.dy); });
 
 	d3.json("{% url comuna-detail pk=object.id %}", function(error, root) {
+		console.log(root);
 	  var path = svg.datum(root).selectAll("path")
 	      .data(partition.nodes)
 	    .enter()
