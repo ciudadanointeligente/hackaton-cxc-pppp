@@ -19,6 +19,9 @@ class Proyecto(models.Model):
 	valor_magnitud = models.IntegerField(null=True)
 	vida_util = models.IntegerField(null=True)
 	beneficiarios = models.IntegerField(null=True)
+	a_favor = models.IntegerField(default=0)
+	en_contra = models.IntegerField(default=0)
+
 
 class Sector(models.Model):
 	nombre = models.CharField(max_length=255)
