@@ -6,7 +6,7 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
-from models import Proyecto
+from models import Proyecto, Sector
 from electoralarea.models import Comuna
 
 #bd proyectos
@@ -51,6 +51,12 @@ class ProyectoTestCase(TestCase):
 
 
 #bd sector/subsector del proyecto
+class SectorTestCase(TestCase):
+	def test_create_proyecto(self):
+		sector, created = Sector.objects.get_or_create(
+			nombre = u"Educacion")
+		self.assertTrue(created)
+		self.assertEquals(sector.nombre, u"Educacion")
 
 #bd institucion
 
