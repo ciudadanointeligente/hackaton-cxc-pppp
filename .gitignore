@@ -3,3 +3,6 @@
 *.pyc
 local_settings.py
 cxcfci/local_settings.py
+*.DS_Store
+*.db
+sifuerapormi/fixtures/
