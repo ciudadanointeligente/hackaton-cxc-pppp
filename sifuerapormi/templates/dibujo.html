@@ -17,6 +17,12 @@ form {
 
 </style>
 <body>
+<h1>
+FNDR - {{object}}
+</h1>
+<h2>
+El estado en tu comuna
+</h2>
 <form>
   <label><input type="radio" name="mode" value="size"> Monto Inversión</label>
   <label><input type="radio" name="mode" value="count" checked> Cantidad de Proyectos</label>
@@ -26,8 +32,8 @@ form {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 $(document).ready(function(){
-	var width = 960,
-    height = 700,
+	var width = 800,
+    height = 600,
     radius = Math.min(width, height) / 2,
     color = d3.scale.category20c();
 
