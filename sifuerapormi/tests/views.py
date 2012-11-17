@@ -87,7 +87,7 @@ class ComunaJsonViewTestCase(TestCase):
 			beneficiarios = 123456
 			)
 
-		proyecto4 = Proyecto.objects.create(
+		self.proyecto4 = Proyecto.objects.create(
 			codigo = u"asdf",
 			nombre = u"Proyecto de prueba",
 			tipo = u"Tipo de prueba",
@@ -136,3 +136,16 @@ class ComunaJsonViewTestCase(TestCase):
 		self.assertTrue(areas[0]["children"][0]["children"][0]["name"], u"Proyecto de prueba")
 		self.assertEquals(areas[0]["children"][0]["cost"], 1)
 		self.assertEquals(areas[0]["cost"],1)
+
+
+	def test_add_thumbs_up(self):
+		url = reverse("thumbs-up")
+		data = { "pk":self.proyecto4.pk }
+
+		response = self.client.post(url, data)
+
+		self.assertEquals(response.status_code, 200)
+		self.assertEquals(response.context, "1") #representa la cantidad de votos a favor
+		proyecto = Proyecto.objects.get(self.proyecto4.pk)
+
+		self.assertEquals(proyecto.a_favor, 1)

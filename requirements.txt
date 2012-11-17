@@ -1,4 +1,6 @@
 Django==1.4.2
 argparse==1.2.1
 distribute==0.6.24
+django-extensions==1.0.1
+django-valuate==1.0-beta-2.2
 wsgiref==0.1.2
