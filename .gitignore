@@ -6,3 +6,5 @@ cxcfci/local_settings.py
 *.DS_Store
 *.db
 sifuerapormi/fixtures/
+
+*.swp

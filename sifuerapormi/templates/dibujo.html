@@ -17,17 +17,23 @@ form {
 
 </style>
 <body>
+<h1>
+FNDR - {{object}}
+</h1>
+<h2>
+El estado en tu comuna
+</h2>
 <form>
-  <label><input type="radio" name="mode" value="size"> Costo</label>
-  <label><input type="radio" name="mode" value="count" checked> Count</label>
+  <label><input type="radio" name="mode" value="size"> Monto Inversión</label>
+  <label><input type="radio" name="mode" value="count" checked> Cantidad de Proyectos</label>
 </form>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 $(document).ready(function(){
-	var width = 960,
-    height = 700,
+	var width = 800,
+    height = 600,
     radius = Math.min(width, height) / 2,
     color = d3.scale.category20c();
 
@@ -53,15 +59,16 @@ $(document).ready(function(){
 	  var path = svg.datum(root).selectAll("path")
 	      .data(partition.nodes)
 	    .enter()
-	      //.append("a")
-	      //.attr("xlink:href", function(d,i){return d.name})  // this says "every time one of these circles is moused over, use this function
+	      .append("a")
+	      .attr("xlink:href", function(d,i){return d.id==null? '#' : "/proyecto/" + d.id})  // this says "every time one of these circles is moused over, use this function
 	      .append("path")
 	      .attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 	      .attr("d", arc)
 	      .style("stroke", "#fff")
 	      .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
-	      //.attr("title", function(d,i){ return d.name + (d.cost==null? '' : '\n'+ d.cost)})
-	      .attr("title", "holiwi")
+            .append("svg:title")
+              .text(function(d, i) { return d.name + (d.cost==null? '' : '\n$'+ d.cost)})
+	      //.attr("title", function(d,i){ return d.name + (d.cost==null? '' : '\n$'+ d.cost)})
 	      .style("fill-rule", "evenodd")
 	      .each(stash);
 

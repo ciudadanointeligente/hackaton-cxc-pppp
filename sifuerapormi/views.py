@@ -45,7 +45,8 @@ class ComunaIndicesView(DetailView):
 						proyecto_cost_sum += proyecto.costo
 						proyecto_dict = {
 							"name":proyecto.nombre,
-							"cost":proyecto.costo
+							"cost":proyecto.costo,
+							"id":proyecto.id
 						}
 						subsector_dict["children"].append(proyecto_dict)
 				subsector_dict["cost"] = proyecto_cost_sum
