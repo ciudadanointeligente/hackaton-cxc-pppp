@@ -36,4 +36,4 @@ class Command(BaseCommand):
         reader = csv.reader(open(args[0], 'rb'), delimiter='\t')
         csvReader = CsvReader()
         for line in reader:
-            comuna = csvReader.detectComuna(line)
+            proyecto = csvReader.detectBip(line)
