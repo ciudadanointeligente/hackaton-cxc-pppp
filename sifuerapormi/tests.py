@@ -6,6 +6,7 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
+from django.core.urlresolvers import reverse
 from models import Proyecto, Sector, SubSector, Institucion
 from electoralarea.models import Comuna
 
@@ -83,7 +84,15 @@ class InstitucionTestCase(TestCase):
 		self.assertEquals(institucion.nombre, nombre)
 
 #bd usuario
-
 #db comentario
-
 #bd voto
+
+class HomeViewTestCase(TestCase):
+	def test_homeview(self):
+		url= reverse("home")
+		response = self.client.get(url)
+
+		self.assertEquals(response.status_code, 200)
+		self.assertTemplateUsed(response, "home.html")
+		self.assertTrue("comunas" in response.context)
+		self.assertEquals(response.context["comunas"].count(), Comuna.objects.count())
