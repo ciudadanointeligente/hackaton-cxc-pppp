@@ -24,6 +24,7 @@ class ProyectoTestCase(TestCase):
 		costo = 123456
 		municipalidad_de_valparaiso = Institucion.objects.create(nombre = u"Municipalidad de Valparaiso")
 		descripcion_etapa = u"Descripcion de prueba"
+		descripcion_proyecto = u"Descripcion de proyecto"
 		situacion = u"Sitaucion de prueba"
 		magnitud = u"Magnitud de prueba"
 		valor_magnitud = 123456
@@ -41,6 +42,7 @@ class ProyectoTestCase(TestCase):
 			costo = costo,
 			institucion = municipalidad_de_valparaiso,
 			descripcion_etapa = descripcion_etapa,
+			descripcion_proyecto = descripcion_proyecto,
 			situacion = situacion,
 			magnitud = magnitud,
 			valor_magnitud = valor_magnitud,
