@@ -53,14 +53,15 @@ $(document).ready(function(){
 	  var path = svg.datum(root).selectAll("path")
 	      .data(partition.nodes)
 	    .enter()
-	      .append("a")
-	      .attr("xlink:href", function(d,i){return d.name})  // this says "every time one of these circles is moused over, use this function
+	      //.append("a")
+	      //.attr("xlink:href", function(d,i){return d.name})  // this says "every time one of these circles is moused over, use this function
 	      .append("path")
 	      .attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
 	      .attr("d", arc)
 	      .style("stroke", "#fff")
 	      .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
-	      .attr("title", function(d,i){ return d.name + (d.cost==null? '' : '\n'+ d.cost)})
+	      //.attr("title", function(d,i){ return d.name + (d.cost==null? '' : '\n'+ d.cost)})
+	      .attr("title", "holiwi")
 	      .style("fill-rule", "evenodd")
 	      .each(stash);
 

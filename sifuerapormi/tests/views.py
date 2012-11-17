@@ -124,7 +124,7 @@ class ComunaJsonViewTestCase(TestCase):
 		self.assertTrue("areas" in response.context)
 
 		areas = json.loads(response.context["areas"])
-		self.assertEquals(len(areas), 3)
+		self.assertEquals(len(areas), 2)
 		self.assertTrue("name" in areas[0])
 		self.assertEquals(areas[0]["name"],u"Educacion")
 		self.assertTrue("children" in areas[0])
