@@ -19,7 +19,7 @@ class ProyectoTestCase(TestCase):
 		ano = 2012
 		comuna = Comuna.objects.all()[0]
 		ubicacion = u"Holanda 895"
-		#subsector = Subsector.objects.all()[0]
+		subsector = SubSector.objects.create(nombre = u"Bibliotecas comunitarias", sector = Sector.objects.create(nombre = u"Educacion"))
 		costo = 123456
 		descripcion_etapa = u"Descripcion de prueba"
 		situacion = u"Sitaucion de prueba"
@@ -35,7 +35,7 @@ class ProyectoTestCase(TestCase):
 			ano = ano,
 			comuna = comuna,
 			ubicacion = ubicacion,
-			#subsector,
+			subsector = subsector,
 			costo = costo,
 			#institucion,
 			descripcion_etapa = descripcion_etapa,
@@ -47,7 +47,8 @@ class ProyectoTestCase(TestCase):
 			)
 		self.assertTrue(created)
 		self.assertEquals(codigo, proyecto.codigo)
-		self.assertEquals(comuna,proyecto.comuna)	
+		self.assertEquals(comuna,proyecto.comuna)
+		self.assertEquals(subsector, proyecto.subsector)	
 
 
 #bd sector/subsector del proyecto

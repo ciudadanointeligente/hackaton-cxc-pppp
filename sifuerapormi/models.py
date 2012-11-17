@@ -10,7 +10,7 @@ class Proyecto(models.Model):
 	ano = models.IntegerField()
 	comuna = models.ForeignKey(Comuna)
 	ubicacion = models.CharField(max_length=1024)
-	#subsector = Subsector.objects.all()[0]
+	subsector = models.ForeignKey("SubSector")
 	costo = models.IntegerField()
 	descripcion_etapa = models.CharField(max_length=4096)
 	situacion = models.CharField(max_length=255)
