@@ -54,7 +54,7 @@ class ComunaIndicesView(DetailView):
 			area_dict["cost"] = subsector_cost_sum
 			areas_result.append(area_dict)
 
-		return json.dumps({"name":"flare","children":areas_result})
+		return json.dumps({"name":"padre","children":areas_result})
 
 
 	def get_context_data(self, **kwargs):

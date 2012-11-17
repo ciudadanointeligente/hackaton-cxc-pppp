@@ -18,7 +18,7 @@ form {
 </style>
 <body>
 <form>
-  <label><input type="radio" name="mode" value="size"> Size</label>
+  <label><input type="radio" name="mode" value="size"> Costo</label>
   <label><input type="radio" name="mode" value="count" checked> Count</label>
 </form>
 </body>
@@ -60,14 +60,14 @@ $(document).ready(function(){
 	      .attr("d", arc)
 	      .style("stroke", "#fff")
 	      .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
-	      .attr("title", function(d,i){ return d.name + (d.size==null? '' : '\n'+ d.size)})
+	      .attr("title", function(d,i){ return d.name + (d.cost==null? '' : '\n'+ d.cost)})
 	      .style("fill-rule", "evenodd")
 	      .each(stash);
 
 	  d3.selectAll("input").on("change", function change() {
 	    var value = this.value === "count"
 	        ? function() { return 1; }
-	        : function(d) { return d.size; };
+	        : function(d) { return d.cost; };
 
 	    path
 	        .data(partition.value(value).nodes)
