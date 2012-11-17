@@ -4,5 +4,6 @@ from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
 	url(r'^$', HomeTemplateView.as_view(template_name="home.html"), name="home"),
-	url(r'^(?P<pk>[-\d]+)/?$', ComunaIndicesView.as_view(), name='comuna-detail'),
+	url(r'^(?P<pk>[-\d]+)/?$', ComunaIndicesView.as_view(template_name = "dibujo.html"), name='comuna-detail-dibujo'),
+	url(r'^(?P<pk>[-\d]+).json$', ComunaIndicesView.as_view(), name='comuna-detail'),
 	)
