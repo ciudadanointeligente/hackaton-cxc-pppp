@@ -87,12 +87,4 @@ class InstitucionTestCase(TestCase):
 #db comentario
 #bd voto
 
-class HomeViewTestCase(TestCase):
-	def test_homeview(self):
-		url= reverse("home")
-		response = self.client.get(url)
 
-		self.assertEquals(response.status_code, 200)
-		self.assertTemplateUsed(response, "home.html")
-		self.assertTrue("comunas" in response.context)
-		self.assertEquals(response.context["comunas"].count(), Comuna.objects.count())
