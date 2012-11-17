@@ -41,12 +41,13 @@ class ComunaIndicesView(DetailView):
 				}
 				proyecto_cost_sum = 0
 				for proyecto in subsector.proyecto_set.all():
-					proyecto_cost_sum += proyecto.costo
-					proyecto_dict = {
-						"name":proyecto.nombre,
-						"cost":proyecto.costo
-					}
-					subsector_dict["children"].append(proyecto_dict)
+					if (proyecto.comuna == self.object):
+						proyecto_cost_sum += proyecto.costo
+						proyecto_dict = {
+							"name":proyecto.nombre,
+							"cost":proyecto.costo
+						}
+						subsector_dict["children"].append(proyecto_dict)
 				subsector_dict["cost"] = proyecto_cost_sum
 				subsector_cost_sum += proyecto_cost_sum
 				area_dict["children"].append(subsector_dict)
