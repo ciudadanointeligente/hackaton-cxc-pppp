@@ -7,3 +7,5 @@ cxcfci/local_settings.py
 *.db
 
 *.db
+
+desarrollo.db
