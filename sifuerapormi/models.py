@@ -21,3 +21,7 @@ class Proyecto(models.Model):
 
 class Sector(models.Model):
 	nombre = models.CharField(max_length=255)
+
+class SubSector(models.Model):
+	nombre = models.CharField(max_length=1024)
+	sector = models.ForeignKey(Sector)
