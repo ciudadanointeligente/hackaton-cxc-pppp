@@ -23,17 +23,18 @@ class CsvReader(object):
         													descripcion_etapa = line[17],
         													descripcion_proyecto = line[17],
         													situacion = line[27],
-        													magnitud = line[42],
-        													valor_magnitud = line[43],
-        													vida_util = line[44],
-        													beneficiarios = line[45])
+        													magnitud = line[44],
+        													valor_magnitud = line[45],
+        													vida_util = line[46],
+        													beneficiarios = line[47])
         return proyecto
 
     
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        reader = csv.reader(open(args[0], 'rb'), delimiter='\t')
+        reader = csv.reader(open(args[0], 'rU'), delimiter='\t')
         csvReader = CsvReader()
         for line in reader:
+            print line
             proyecto = csvReader.detectBip(line)
